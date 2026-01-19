@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Sora:wght@300;400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #0ea5e9;
+  --color-primary-600: #0284c7;
+  --color-primary-700: #0369a1;
+  --color-primary-800: #075985;
+  --color-primary-900: #0c4a6e;
+  --color-primary-950: #082f49;
+
+  --color-accent-50: #fdf4ff;
+  --color-accent-100: #fae8ff;
+  --color-accent-200: #f5d0fe;
+  --color-accent-300: #f0abfc;
+  --color-accent-400: #e879f9;
+  --color-accent-500: #d946ef;
+  --color-accent-600: #c026d3;
+  --color-accent-700: #a21caf;
+  --color-accent-800: #86198f;
+  --color-accent-900: #701a75;
+  --color-accent-950: #4a044e;
+
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Sora', 'Inter', system-ui, sans-serif;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+* {
+  border-color: theme('colors.gray.200');
+}
+
+.dark * {
+  border-color: theme('colors.gray.800');
+}
+
+body {
+  background-color: theme('colors.white');
+  color: theme('colors.gray.900');
+  font-family: theme('fontFamily.sans');
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+.dark body {
+  background-color: theme('colors.gray.900');
+  color: theme('colors.gray.100');
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.glassmorphism {
+  background-color: rgb(255 255 255 / 0.8);
+  backdrop-filter: blur(12px);
+  border-width: 1px;
+  border-color: rgb(229 231 235 / 0.2);
+}
+
+.dark .glassmorphism {
+  background-color: rgb(17 24 39 / 0.8);
+  border-color: rgb(55 65 81 / 0.2);
+}
+
+.section-padding {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-left: 3rem;
+    padding-right: 3rem;
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-padding {
+    padding-left: 6rem;
+    padding-right: 6rem;
+  }
+}
+
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
