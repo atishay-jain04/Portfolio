@@ -6,7 +6,7 @@ import {
 } from 'react-icons/di';
 import {
   SiTailwindcss, SiFramer, SiExpress,
-  SiVscodium, SiFigma, SiNextdotjs, SiTypescript, SiCplusplus, SiAppwrite
+  SiVscodium, SiFigma, SiNextdotjs, SiTypescript, SiCplusplus, SiAppwrite, SiPostman
 } from 'react-icons/si';
 import { fadeInUp, staggerContainer } from '../utils/motionVariants';
 import { TECH_STACK } from '../constants';
@@ -41,6 +41,7 @@ const TechStack = () => {
       'Git': { icon: DiGit, color: '#F05032', size: 55 },
       'VS Code': { icon: SiVscodium, color: '#007ACC', size: 52 },
       'Figma': { icon: SiFigma, color: '#F24E1E', size: 48 },
+      'Postman': { icon: SiPostman, color: '#FF6C37', size: 52 },
 
       // Backend Services
       'Appwrite': { icon: SiAppwrite, color: '#FD366E', size: 52 },
@@ -49,17 +50,17 @@ const TechStack = () => {
     return iconMap[techName] || { icon: null, color: '#666', size: 48 };
   };
 
-  // Flatten all techs into a single array
-  const allTechs = [
+  // Flatten all techs into a single array, removing duplicates
+  const allTechs = Array.from(new Set([
     ...TECH_STACK.frontend,
     ...TECH_STACK.backend,
     ...TECH_STACK.languages,
     ...TECH_STACK.tools,
     ...TECH_STACK.backend_services,
-  ];
+  ]));
 
   return (
-    <section id="tech-stack" className="section-padding bg-gray-50 dark:bg-gray-800/50">
+    <section id="tech-stack" className="section-padding bg-gray-950/50">
       <div className="container-custom">
         <motion.div
           variants={staggerContainer}
@@ -70,10 +71,10 @@ const TechStack = () => {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
               Skills
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               The technologies I build with.
             </p>
           </motion.div>
@@ -87,7 +88,7 @@ const TechStack = () => {
 
                 return (
                   <motion.div
-                    key={tech}
+                    key={`${tech}-${index}`}
                     variants={fadeInUp}
                     whileHover={{
                       scale: 1.15,
@@ -97,7 +98,7 @@ const TechStack = () => {
                     className="flex flex-col items-center gap-3 group"
                   >
                     <div
-                      className="flex items-center justify-center p-4 rounded-2xl bg-white dark:bg-gray-800/50 backdrop-blur-sm shadow-lg border border-gray-200 dark:border-gray-700 group-hover:border-gray-300 dark:group-hover:border-gray-600 transition-all duration-300"
+                      className="flex items-center justify-center p-4 rounded-2xl bg-gray-900/50 backdrop-blur-sm shadow-lg border border-gray-700/50 group-hover:border-emerald-500/50 transition-all duration-300"
                       style={{ width: size + 32, height: size + 32 }}
                     >
                       {Icon ? (
@@ -115,7 +116,7 @@ const TechStack = () => {
                       )}
                     </div>
                     {/* Tech name label - shows on hover or mobile */}
-                    <span className="text-xs font-medium text-gray-600 dark:text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-0">
+                    <span className="text-xs font-medium text-gray-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300 md:opacity-0">
                       {tech}
                     </span>
                   </motion.div>

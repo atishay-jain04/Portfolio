@@ -10,7 +10,7 @@ import { PROJECTS } from '../constants';
  */
 const Projects = () => {
   return (
-    <section id="projects" className="section-padding bg-gray-50 dark:bg-gray-800/50">
+    <section id="projects" className="section-padding bg-gray-950/50">
       <div className="container-custom">
         <motion.div
           variants={staggerContainer}
@@ -21,11 +21,11 @@ const Projects = () => {
         >
           {/* Section Header */}
           <motion.div variants={fadeInUp} className="text-center space-y-4">
-            <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white">
+            <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
               Featured Projects
             </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full mx-auto"></div>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+            <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full mx-auto"></div>
+            <p className="text-lg text-gray-400 max-w-2xl mx-auto">
               A collection of projects that showcase my skills and passion for development
             </p>
           </motion.div>
@@ -48,7 +48,7 @@ const Projects = () => {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-medium hover:border-primary-500 dark:hover:border-primary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-gray-700 text-gray-300 font-medium hover:border-emerald-500 hover:text-emerald-400 transition-colors"
             >
               <FiGithub className="w-5 h-5" />
               View All Projects on GitHub

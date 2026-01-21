@@ -7,6 +7,14 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
+      colors: {
+        neon: {
+          bg: '#0a0a0f',
+          purple: '#a855f7',
+          blue: '#3b82f6',
+          cyan: '#06b6d4',
+        },
+      },
       animation: {
         'float': 'float 3s ease-in-out infinite',
         'glow': 'glow 2s ease-in-out infinite alternate',

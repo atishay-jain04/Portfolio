@@ -24,18 +24,18 @@ const ProjectCard = ({ project, index = 0 }) => {
       }}
       className="group relative"
     >
-      <div className="relative overflow-hidden rounded-2xl bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-2xl transition-shadow duration-300">
+      <div className="relative overflow-hidden rounded-2xl bg-gray-900/80 border border-gray-700/50 shadow-lg hover:shadow-emerald-500/20 transition-shadow duration-300">
         {/* Featured Badge */}
         {featured && (
           <div className="absolute top-4 right-4 z-10">
-            <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-primary-500 to-accent-500 text-white shadow-lg">
+            <span className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-emerald-500 to-green-500 text-white shadow-lg">
               Featured
             </span>
           </div>
         )}
 
         {/* Project Image */}
-        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/20 dark:to-accent-900/20">
+        <div className="relative h-48 overflow-hidden bg-gradient-to-br from-emerald-900/20 to-green-900/20">
           {image ? (
             <img
               src={image}
@@ -44,7 +44,7 @@ const ProjectCard = ({ project, index = 0 }) => {
             />
           ) : (
             <div className="w-full h-full flex items-center justify-center">
-              <HiPhoto className="w-20 h-20 text-gray-400 dark:text-gray-600" />
+              <HiPhoto className="w-20 h-20 text-gray-600" />
             </div>
           )}
         </div>
@@ -52,12 +52,12 @@ const ProjectCard = ({ project, index = 0 }) => {
         {/* Project Content */}
         <div className="p-6 space-y-4">
           {/* Title */}
-          <h3 className="text-xl font-display font-bold text-gray-900 dark:text-white">
+          <h3 className="text-xl font-display font-bold text-white">
             {title}
           </h3>
 
           {/* Description */}
-          <p className="text-gray-600 dark:text-gray-300 text-sm line-clamp-3">
+          <p className="text-gray-400 text-sm line-clamp-3">
             {description}
           </p>
 
@@ -66,7 +66,7 @@ const ProjectCard = ({ project, index = 0 }) => {
             {tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs font-medium rounded-full bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300"
+                className="px-3 py-1 text-xs font-medium rounded-full bg-gray-800 text-gray-300 border border-gray-700"
               >
                 {tag}
               </span>
@@ -80,7 +80,7 @@ const ProjectCard = ({ project, index = 0 }) => {
                 href={demoUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-4 py-2 rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white text-sm font-medium text-center hover:shadow-lg hover:scale-105 transition-all duration-300"
+                className="flex-1 px-4 py-2 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 text-white text-sm font-medium text-center hover:shadow-lg hover:shadow-emerald-500/30 hover:scale-105 transition-all duration-300"
               >
                 Live Demo
               </a>
@@ -90,7 +90,7 @@ const ProjectCard = ({ project, index = 0 }) => {
                 href={githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-sm font-medium text-center hover:bg-gray-100 dark:hover:bg-gray-700 hover:scale-105 transition-all duration-300"
+                className="flex-1 px-4 py-2 rounded-lg border border-gray-600 text-gray-300 text-sm font-medium text-center hover:bg-gray-800 hover:border-emerald-500/50 hover:text-emerald-400 hover:scale-105 transition-all duration-300"
               >
                 <span className="flex items-center justify-center gap-2">
                   <FiGithub className="w-4 h-4" />

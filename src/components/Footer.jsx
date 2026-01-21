@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiMail } from 'react-icons/fi';
 import { SOCIAL_LINKS, PERSONAL_INFO } from '../constants';
 import { fadeInUp } from '../utils/motionVariants';
 
@@ -13,12 +13,11 @@ const Footer = () => {
   const socialIcons = {
     github: <FiGithub className="w-5 h-5" />,
     linkedin: <FiLinkedin className="w-5 h-5" />,
-    twitter: <FiTwitter className="w-5 h-5" />,
     email: <FiMail className="w-5 h-5" />,
   };
 
   return (
-    <footer className="bg-white dark:bg-gray-900 border-t border-gray-200 dark:border-gray-800">
+    <footer className="bg-gray-900/80 border-t border-gray-800">
       <div className="container-custom section-padding">
         <motion.div
           variants={fadeInUp}
@@ -31,10 +30,10 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             {/* Branding */}
             <div className="text-center md:text-left">
-              <h3 className="text-2xl font-display font-bold text-gray-900 dark:text-white mb-2">
+              <h3 className="text-2xl font-display font-bold text-white mb-2">
                 {PERSONAL_INFO.name}
               </h3>
-              <p className="text-gray-600 dark:text-gray-400">
+              <p className="text-gray-400">
                 {PERSONAL_INFO.title}
               </p>
             </div>
@@ -49,7 +48,7 @@ const Footer = () => {
                   rel="noopener noreferrer"
                   whileHover={{ scale: 1.1, y: -2 }}
                   whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-primary-100 dark:hover:bg-primary-900/30 hover:text-primary-600 dark:hover:text-primary-400 transition-colors"
+                  className="p-3 rounded-full bg-gray-800 text-gray-300 hover:bg-emerald-500/20 hover:text-emerald-400 transition-colors border border-gray-700 hover:border-emerald-500/50"
                   aria-label={social.name}
                 >
                   {socialIcons[social.icon]}
@@ -59,16 +58,16 @@ const Footer = () => {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-200 dark:border-gray-800" />
+          <div className="border-t border-gray-800" />
 
           {/* Bottom Section */}
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
             <p>
               © {currentYear} {PERSONAL_INFO.name}. All rights reserved.
             </p>
             <p className="flex items-center gap-1">
               Built with
-              <span className="text-red-500 animate-pulse">♥</span>
+              <span className="text-emerald-500 animate-pulse">♥</span>
               using React & Tailwind CSS
             </p>
           </div>

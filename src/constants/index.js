@@ -19,7 +19,6 @@ export const NAV_LINKS = [
   { id: 'about', label: 'About', href: '#about' },
   { id: 'tech-stack', label: 'Tech Stack', href: '#tech-stack' },
   { id: 'projects', label: 'Projects', href: '#projects' },
-  { id: 'resume', label: 'Resume', href: '#resume' },
   { id: 'contact', label: 'Contact', href: '#contact' },
 ];
 
@@ -51,6 +50,7 @@ export const TECH_STACK = {
     'Git',
     'VS Code',
     'Figma',
+    'Postman',
   ],
   backend_services: [
     'Appwrite',
@@ -93,11 +93,6 @@ export const SOCIAL_LINKS = [
     name: 'LinkedIn',
     url: 'https://linkedin.com/in/yourprofile',
     icon: 'linkedin',
-  },
-  {
-    name: 'Twitter',
-    url: 'https://twitter.com/yourhandle',
-    icon: 'twitter',
   },
   {
     name: 'Email',

@@ -14,7 +14,7 @@ const About = () => {
   const { isDark } = useTheme();
 
   return (
-    <section id="about" className="section-padding bg-gray-50 dark:bg-gray-800/50">
+    <section id="about" className="section-padding bg-gray-950/50">
       <div className="container-custom">
         <motion.div
           variants={staggerContainer}
@@ -46,22 +46,22 @@ const About = () => {
           {/* Right side - Content */}
           <motion.div variants={fadeInRight} className="space-y-6">
             <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-gray-900 dark:text-white">
+              <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
                 About Me
               </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-primary-500 to-accent-500 rounded-full"></div>
+              <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"></div>
             </div>
 
             <motion.h3
               variants={staggerItem}
-              className="text-2xl md:text-3xl font-display font-semibold text-primary-600 dark:text-primary-400"
+              className="text-2xl md:text-3xl font-display font-semibold text-emerald-400"
             >
               {ABOUT_TEXT.greeting}
             </motion.h3>
 
             <motion.p
               variants={staggerItem}
-              className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed"
+              className="text-lg text-gray-400 leading-relaxed"
             >
               {ABOUT_TEXT.description}
             </motion.p>
@@ -77,10 +77,10 @@ const About = () => {
                   variants={staggerItem}
                   className="flex items-start gap-3"
                 >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-primary-500 flex items-center justify-center mt-1">
+                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center mt-1 shadow-[0_0_10px_rgba(16,185,129,0.5)]">
                     <HiCheck className="w-4 h-4 text-white" />
                   </div>
-                  <p className="text-gray-700 dark:text-gray-300">{highlight}</p>
+                  <p className="text-gray-300">{highlight}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -91,7 +91,7 @@ const About = () => {
                 href="#contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-primary-500 to-accent-500 text-white font-medium shadow-lg hover:shadow-xl transition-shadow"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 text-white font-medium shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] transition-shadow"
               >
                 Let's Work Together
                 <HiArrowRight className="w-5 h-5" />

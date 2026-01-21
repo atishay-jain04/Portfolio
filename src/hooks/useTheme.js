@@ -1,30 +1,19 @@
-import { useState, useEffect } from 'react';
-import { initializeTheme, toggleTheme, applyTheme, saveTheme } from '../utils/theme';
+import { useEffect } from 'react';
 
 /**
  * Custom hook for managing theme state
- * @returns {Object} theme state and toggle function
+ * Always returns dark mode
  */
 export const useTheme = () => {
-  const [theme, setTheme] = useState('light');
-
-  // Initialize theme on mount
+  // Force dark mode on mount
   useEffect(() => {
-    const initialTheme = initializeTheme();
-    setTheme(initialTheme);
+    document.documentElement.classList.add('dark');
+    localStorage.setItem('theme', 'dark');
   }, []);
 
-  // Handle theme toggle
-  const handleToggleTheme = () => {
-    const newTheme = toggleTheme(theme);
-    setTheme(newTheme);
-    applyTheme(newTheme);
-    saveTheme(newTheme);
-  };
-
   return {
-    theme,
-    toggleTheme: handleToggleTheme,
-    isDark: theme === 'dark',
+    theme: 'dark',
+    toggleTheme: () => {}, // No-op function since theme is fixed
+    isDark: true,
   };
 };

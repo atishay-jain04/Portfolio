@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HiXMark, HiBars3 } from 'react-icons/hi2';
-import { NAV_LINKS } from '../constants';
+import { FiGithub, FiLinkedin } from 'react-icons/fi';
+import { NAV_LINKS, PERSONAL_INFO } from '../constants';
 import { navbarVariant } from '../utils/motionVariants';
 import ThemeToggle from './ThemeToggle';
 
@@ -79,7 +80,7 @@ const Navbar = ({ theme, toggleTheme }) => {
             <motion.a
               href="#home"
               onClick={(e) => handleNavClick(e, '#home')}
-              className="text-xl font-display font-bold text-gray-900 dark:text-white"
+              className="text-xl font-display font-bold text-white"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -95,20 +96,46 @@ const Navbar = ({ theme, toggleTheme }) => {
                   onClick={(e) => handleNavClick(e, link.href)}
                   className={`relative px-4 py-2 rounded-full text-sm font-medium transition-colors ${
                     activeSection === link.id
-                      ? 'text-primary-600 dark:text-primary-400'
-                      : 'text-gray-700 dark:text-gray-300 hover:text-primary-600 dark:hover:text-primary-400'
+                      ? 'text-emerald-400'
+                      : 'text-gray-300 hover:text-emerald-400'
                   }`}
                 >
                   {link.label}
                   {activeSection === link.id && (
                     <motion.div
                       layoutId="activeSection"
-                      className="absolute inset-0 bg-primary-100 dark:bg-primary-900/30 rounded-full -z-10"
+                      className="absolute inset-0 bg-emerald-500/20 rounded-full -z-10"
                       transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                     />
                   )}
                 </a>
               ))}
+              {/* Social Icons Divider */}
+              <div className="w-px h-6 bg-gray-700 mx-2" />
+              {/* GitHub Link */}
+              <motion.a
+                href={PERSONAL_INFO.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, y: -1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 rounded-full text-gray-300 hover:text-emerald-400 transition-colors"
+                aria-label="GitHub"
+              >
+                <FiGithub className="w-5 h-5" />
+              </motion.a>
+              {/* LinkedIn Link */}
+              <motion.a
+                href={PERSONAL_INFO.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.1, y: -1 }}
+                whileTap={{ scale: 0.95 }}
+                className="p-2 rounded-full text-gray-300 hover:text-emerald-400 transition-colors"
+                aria-label="LinkedIn"
+              >
+                <FiLinkedin className="w-5 h-5" />
+              </motion.a>
             </div>
 
             {/* Right Section: Theme Toggle + Mobile Menu */}
@@ -118,13 +145,13 @@ const Navbar = ({ theme, toggleTheme }) => {
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+                className="md:hidden p-2 rounded-lg hover:bg-gray-800 transition-colors"
                 aria-label="Toggle menu"
               >
                 {isMobileMenuOpen ? (
-                  <HiXMark className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                  <HiXMark className="w-6 h-6 text-gray-300" />
                 ) : (
-                  <HiBars3 className="w-6 h-6 text-gray-700 dark:text-gray-300" />
+                  <HiBars3 className="w-6 h-6 text-gray-300" />
                 )}
               </button>
             </div>
@@ -138,7 +165,7 @@ const Navbar = ({ theme, toggleTheme }) => {
                 animate={{ opacity: 1, height: 'auto' }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.3 }}
-                className="md:hidden border-t border-gray-200/20 dark:border-gray-700/20"
+                className="md:hidden border-t border-gray-700/20"
               >
                 <div className="px-6 py-4 space-y-2">
                   {NAV_LINKS.map((link) => (
@@ -148,13 +175,36 @@ const Navbar = ({ theme, toggleTheme }) => {
                       onClick={(e) => handleNavClick(e, link.href)}
                       className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                         activeSection === link.id
-                          ? 'bg-primary-100 dark:bg-primary-900/30 text-primary-600 dark:text-primary-400'
-                          : 'text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800'
+                          ? 'bg-emerald-500/20 text-emerald-400'
+                          : 'text-gray-300 hover:bg-gray-800'
                       }`}
                     >
                       {link.label}
                     </a>
                   ))}
+                  {/* Mobile Social Links */}
+                  <div className="flex items-center gap-4 pt-2 mt-2 border-t border-gray-700/20">
+                    <motion.a
+                      href={PERSONAL_INFO.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-800 transition-colors"
+                    >
+                      <FiGithub className="w-5 h-5" />
+                      <span className="text-sm">GitHub</span>
+                    </motion.a>
+                    <motion.a
+                      href={PERSONAL_INFO.linkedin}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      whileTap={{ scale: 0.95 }}
+                      className="flex items-center gap-2 px-4 py-2 rounded-lg text-gray-300 hover:bg-gray-800 transition-colors"
+                    >
+                      <FiLinkedin className="w-5 h-5" />
+                      <span className="text-sm">LinkedIn</span>
+                    </motion.a>
+                  </div>
                 </div>
               </motion.div>
             )}
