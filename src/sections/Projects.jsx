@@ -12,8 +12,8 @@ const Projects = () => {
 
   // Helper to get year and category from project
   const getProjectMeta = (index) => {
-    const years = ['2024', '2023', '2024'];
-    const categories = ['FULL STACK', 'AI RESEARCH', 'WEB3'];
+    const years = ['2026', '2025', '2024'];
+    const categories = ['FULL STACK', 'EDTECH', 'WEB3'];
     return { year: years[index % 3], category: categories[index % 3] };
   };
 

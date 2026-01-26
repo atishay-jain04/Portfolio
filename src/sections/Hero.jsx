@@ -9,7 +9,7 @@ import Typewriter from '../components/Typewriter';
  * Hero Section - Landing section with large outline text effect
  */
 const Hero = () => {
-  const titles = ['Full-Stack Developer', 'AIML Enthusiast'];
+  const titles = ['Frontend Developer', 'Full-Stack Developer'];
 
   return (
     <section id="home" className="relative min-h-screen flex flex-col overflow-hidden pt-20 pb-12 md:justify-center">
@@ -28,7 +28,7 @@ const Hero = () => {
           className="flex flex-col md:flex-row items-end justify-between gap-12 pb-12 border-b border-white/10"
         >
           <motion.div variants={fadeInUp}>
-            <p className="font-mono text-accent text-sm mb-4 tracking-widest uppercase">Portfolio 2024</p>
+            <p className="font-mono text-accent text-sm mb-4 tracking-widest uppercase">Portfolio 2026</p>
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-display font-bold tracking-tighter text-white leading-[0.9]">
               {PERSONAL_INFO.name.split(' ')[0]}<br />
               <span className="text-gray-500">{PERSONAL_INFO.name.split(' ')[1]}</span>

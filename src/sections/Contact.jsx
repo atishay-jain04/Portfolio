@@ -178,7 +178,7 @@ const Contact = () => {
             ))}
           </div>
           <div className="font-mono text-xs" style={{ color: '#CCFF00' }}>
-            © 2024 {PERSONAL_INFO.name.toUpperCase()}. SYSTEM ONLINE.
+            © 2026 {PERSONAL_INFO.name.toUpperCase()}. SYSTEM ONLINE.
           </div>
         </motion.div>
       </div>
