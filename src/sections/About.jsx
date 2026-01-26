@@ -1,102 +1,65 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { HiCheck, HiArrowRight } from 'react-icons/hi2';
-import { fadeInUp, fadeInLeft, fadeInRight, staggerContainer, staggerItem } from '../utils/motionVariants';
-import { ABOUT_TEXT, PERSONAL_INFO } from '../constants';
-import profileImageLight from '../assets/images/ATISHAY1.jpg';
-import profileImageDark from '../assets/images/ATISHAY.png';
-import { useTheme } from '../hooks/useTheme';
+import { HiArrowRight } from 'react-icons/hi2';
+import { fadeInUp, staggerContainer, staggerItem } from '../utils/motionVariants';
+import { ABOUT_TEXT } from '../constants';
 
 /**
- * About Section - Bio and description
+ * About Section - Bio and description (no photo)
  */
 const About = () => {
-  const { isDark } = useTheme();
-
   return (
-    <section id="about" className="section-padding bg-gray-950/50">
-      <div className="container-custom">
+    <section id="about" className="py-20 md:py-32 relative z-10 bg-bg-pure">
+      <div className="px-4 sm:px-6 lg:px-8">
         <motion.div
           variants={staggerContainer}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid lg:grid-cols-2 gap-12 items-center"
+          className="space-y-8"
         >
-          {/* Left side - Image/Avatar */}
-          <motion.div variants={fadeInLeft} className="relative">
-            <div className="relative w-full max-w-md mx-auto">
-              {/* Decorative background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary-400 to-accent-400 rounded-2xl rotate-6 opacity-20"></div>
-
-              {/* Image container */}
-              <div className="relative bg-gradient-to-br from-primary-100 to-accent-100 dark:from-primary-900/30 dark:to-accent-900/30 rounded-2xl p-3 backdrop-blur-sm border border-primary-200 dark:border-gray-700">
-                <motion.img
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.3 }}
-                  src={isDark ? profileImageDark : profileImageLight}
-                  alt={PERSONAL_INFO.name}
-                  key={isDark ? 'dark' : 'light'}
-                  className="w-full h-auto rounded-xl object-cover shadow-xl"
-                />
-              </div>
-            </div>
+          <motion.div variants={fadeInUp}>
+            <p className="font-mono text-sm mb-4 tracking-widest uppercase border-b pb-2 inline-block" style={{ color: '#CCFF00', borderColor: 'rgba(204, 255, 0, 0.2)' }}>About Me</p>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-display font-bold text-white">
+              {ABOUT_TEXT.greeting}
+            </h2>
           </motion.div>
 
-          {/* Right side - Content */}
-          <motion.div variants={fadeInRight} className="space-y-6">
-            <div className="space-y-4">
-              <h2 className="text-4xl md:text-5xl font-display font-bold text-white">
-                About Me
-              </h2>
-              <div className="w-20 h-1 bg-gradient-to-r from-emerald-500 to-green-500 rounded-full"></div>
-            </div>
+          <motion.p
+            variants={staggerItem}
+            className="text-xl text-gray-400 leading-relaxed font-light"
+          >
+            {ABOUT_TEXT.description}
+          </motion.p>
 
-            <motion.h3
-              variants={staggerItem}
-              className="text-2xl md:text-3xl font-display font-semibold text-emerald-400"
-            >
-              {ABOUT_TEXT.greeting}
-            </motion.h3>
-
-            <motion.p
-              variants={staggerItem}
-              className="text-lg text-gray-400 leading-relaxed"
-            >
-              {ABOUT_TEXT.description}
-            </motion.p>
-
-            {/* Highlights */}
-            <motion.div
-              variants={staggerContainer}
-              className="space-y-3 pt-4"
-            >
-              {ABOUT_TEXT.highlights.map((highlight, index) => (
-                <motion.div
-                  key={index}
-                  variants={staggerItem}
-                  className="flex items-start gap-3"
-                >
-                  <div className="flex-shrink-0 w-6 h-6 rounded-full bg-emerald-500 flex items-center justify-center mt-1 shadow-[0_0_10px_rgba(16,185,129,0.5)]">
-                    <HiCheck className="w-4 h-4 text-white" />
-                  </div>
-                  <p className="text-gray-300">{highlight}</p>
-                </motion.div>
-              ))}
-            </motion.div>
-
-            {/* CTA */}
-            <motion.div variants={staggerItem} className="pt-6">
-              <motion.a
-                href="#contact"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-gradient-to-r from-emerald-500 to-green-500 text-white font-medium shadow-[0_0_20px_rgba(16,185,129,0.4)] hover:shadow-[0_0_30px_rgba(16,185,129,0.6)] transition-shadow"
+          {/* Highlights */}
+          <motion.div
+            variants={staggerContainer}
+            className="space-y-4 pt-4"
+          >
+            {ABOUT_TEXT.highlights.map((highlight, index) => (
+              <motion.div
+                key={index}
+                variants={staggerItem}
+                className="flex items-start gap-4"
               >
-                Let's Work Together
-                <HiArrowRight className="w-5 h-5" />
-              </motion.a>
-            </motion.div>
+                <span className="flex-shrink-0 w-2 h-2 rounded-full mt-2.5" style={{ backgroundColor: '#CCFF00', boxShadow: '0 0 8px rgba(204, 255, 0, 0.6)' }}></span>
+                <p className="text-gray-300 text-lg">{highlight}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          {/* CTA */}
+          <motion.div variants={staggerItem} className="pt-8">
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(204, 255, 0, 0.4)" }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-flex items-center gap-2 px-8 py-4 rounded-full bg-white text-black hover:bg-accent font-medium text-lg transition-all duration-300"
+            >
+              Let's Connect
+              <HiArrowRight className="w-5 h-5" />
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>
