@@ -46,24 +46,36 @@ const Projects = () => {
                   <motion.div
                     key={project.id}
                     variants={fadeInUp}
-                    className="project-item group border-t border-white/10 py-12 relative cursor-pointer transition-all duration-300"
+                    className="project-item group border-t border-white/10 py-12 relative transition-all duration-300"
                     onMouseEnter={() => setHoveredProject(index)}
                     onMouseLeave={() => setHoveredProject(null)}
                   >
-                    <div className="flex justify-between items-baseline relative z-20 mix-blend-difference gap-4">
-                      <h3 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gray-400 group-hover:text-accent transition-all duration-300 project-title break-words">
-                        {project.title.toUpperCase()}
-                      </h3>
-                      <span className="font-mono text-sm transition-colors hidden sm:block" style={{ color: '#CCFF00' }}>
-                        {year} // {category}
-                      </span>
-                    </div>
+                    <a
+                      href={project.demoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block w-full"
+                    >
+                      <div className="flex justify-between items-baseline relative z-20 mix-blend-difference gap-4">
+                        <h3 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-gray-400 group-hover:text-accent transition-all duration-300 project-title break-words">
+                          {project.title.toUpperCase()}
+                        </h3>
+                        <span className="font-mono text-sm transition-colors hidden sm:block" style={{ color: '#CCFF00' }}>
+                          {year} // {category}
+                        </span>
+                      </div>
 
-                    <div className="flex gap-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-mono text-xs pl-[2rem]" style={{ color: '#CCFF00' }}>
-                      {project.tags.map((tag, idx) => (
-                        <span key={idx}>{tag}</span>
-                      ))}
-                    </div>
+                      <div className="flex gap-4 mt-4 opacity-0 md:group-hover:opacity-100 sm:opacity-100 transition-opacity duration-300 font-mono text-xs pl-[2rem]" style={{ color: '#CCFF00' }}>
+                        {project.tags.map((tag, idx) => (
+                          <span key={idx}>{tag}</span>
+                        ))}
+                      </div>
+
+                      {/* Mobile action indicator */}
+                      <span className="sm:hidden font-mono text-xs mt-2 inline-block" style={{ color: '#CCFF00' }}>
+                        Tap to view →
+                      </span>
+                    </a>
 
                     {/* Floating hover image */}
                     <div
